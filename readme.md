@@ -1,0 +1,1 @@
+Ensure that you have `MAILCHIMP_API_KEY` set in your environment. You can get your MailChimp API Key [here](https://us4.admin.mailchimp.com/account/api/).
