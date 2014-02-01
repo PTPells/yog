@@ -1,0 +1,23 @@
+{
+  "name": "yog",
+  "version": "0.0.0",
+  "description": "Landing page and email capture using MailChimp API.",
+  "main": "web.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/evsie001/yog.git"
+  },
+  "author": "Evan Siegel (siegel.evan@gmail.com)",
+  "license": "",
+  "bugs": {
+    "url": "https://github.com/evsie001/yog/issues"
+  },
+  "homepage": "http://www.getyog.com",
+  "dependencies": {
+    "logfmt": "~0.20.0",
+    "express": "~3.4.8"
+  }
+}
