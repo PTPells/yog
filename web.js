@@ -16,8 +16,26 @@ app.use(express.bodyParser());
 app.use(require('less-middleware')({ src: __dirname + '/public' }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', function(req, res) {
+app.get('/', function (req, res) {
     res.render('index');
+});
+
+app.post('/email', function (req, res) {
+    email = req.body.email;
+    console.log(email);
+
+    mc_api.call(
+        'lists',
+        'subscribe',
+        { id: '772e4f41d0', email: { email: email } },
+        function (error, data) {
+            if (error) {
+                res.send({ success: false, message: error.message });
+            } else {
+                res.send({ success: true, data: data });
+            }
+        }
+    );
 });
 
 port = Number(process.env.PORT || 5000);
