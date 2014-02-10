@@ -4,24 +4,34 @@ function EmailCapture (id) {
     $button = $($root.find('button'));
     $message = $($root.find('.message'));
 
-    $button.click(sendEmail);
+    $button.click(function () {
+        sendEmail();
+        _gaq.push('trackEvent', 'Email Form', 'Submit', 'Button Press');
+    });
+    $input.focus(function (event) {
+        _gaq.push('trackEvent', 'Email Form', 'Input Focus');
+    });
     $input.keypress(function (event) {
-        /* Act on the event */
+        if (event.keycode===13) {
+            sendEmail();
+            _gaq.push('trackEvent', 'Email Form', 'Submit', 'Return Key Press');
+        }
     });
 
     function sendEmail () {
         var data = { email: $input.val() };
         if (!data.email) {
             showMessage("You didn't enter an email address.", 'failure');
+            _gaq.push('trackEvent', 'Email Form', 'Failure', 'No Input');
             return false;
         }
         $.post('/email', data, function(res, textStatus, xhr) {
             if (res.success) {
-                console.log(res.data);
                 showMessage("Success! Please make sure to click the link in the confirmation email.", 'success');
+                _gaq.push('trackEvent', 'Email Form', 'Success', data.email);
             } else {
-                console.log(res.message);
                 showMessage(res.message, 'failure');
+                _gaq.push('trackEvent', 'Email Form', 'Failure', data.email);
             }
         });
     }
