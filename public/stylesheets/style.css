@@ -28,22 +28,23 @@ body {
   left: 20px;
   padding: 0;
   margin: 0;
-  font-size: 65px;
+  font-size: 40px;
   font-weight: 200;
   color: white;
   opacity: 0.70;
 }
 .logo img {
   vertical-align: middle;
+  width: 60px;
 }
 @media (max-width: 400px) {
   .logo img {
-    width: 50px;
+    width: 40px;
   }
 }
 @media (max-width: 400px) {
   .logo {
-    font-size: 40px;
+    font-size: 35px;
   }
 }
 .overlay {
