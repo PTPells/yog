@@ -150,6 +150,16 @@ button:hover {
 button:focus {
   outline: 0;
 }
+.thanks {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 16px;
+  background-color: #14cc3a;
+  font-size: 18px;
+  font-weight: 200;
+  text-align: center;
+  color: white;
+}
 .message {
   position: absolute;
   right: 40px;
